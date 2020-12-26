@@ -22,7 +22,6 @@
         android:textColorHint="#ecf0f1"
         android:id="@+id/kullaniciAdEditText"
         android:layout_margin="15dp"
-        android:shadowRadius="15dp"
     />
 
     <Button

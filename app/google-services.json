@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "643206381030",
+    "firebase_url": "https://gercekzamanlimesajlasma-default-rtdb.firebaseio.com",
+    "project_id": "gercekzamanlimesajlasma",
+    "storage_bucket": "gercekzamanlimesajlasma.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643206381030:android:43f30ee2d773436dcbaa27",
+        "android_client_info": {
+          "package_name": "com.rabiayilmaz.gercekzamanlimesajlasma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643206381030-83s12rqmdbsqrijpgb3d8fq5t6euedvt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rabiayilmaz.gercekzamanlimesajlasma",
+            "certificate_hash": "8fd1bf9d88304dc31adf163a37223260cb7b2866"
+          }
+        },
+        {
+          "client_id": "643206381030-hb2ol6ah1inomo1947mu101feboqrvkd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLOcIvC8Syq3lxQZdtfy4DuChzgIkcDrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643206381030-hb2ol6ah1inomo1947mu101feboqrvkd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
