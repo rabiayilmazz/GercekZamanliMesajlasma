@@ -3,9 +3,12 @@ package com.rabiayilmaz.gercekzamanlimesajlasma;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Adapter;
 import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
@@ -22,8 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
-    List<String> list;
+    List<String> list = new ArrayList<>();
     String username;
+    RecyclerView userRecyclerView;
+    UserAdapter userAdapter;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +43,11 @@ public class MainActivity extends AppCompatActivity {
         username = getIntent().getExtras().getString("kadi");
         firebaseDatabase = FirebaseDatabase.getInstance();
         reference = firebaseDatabase.getReference();
-        list = new ArrayList<>();
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(MainActivity.this,2);
+        userRecyclerView.setLayoutManager(layoutManager);
+        userAdapter = new UserAdapter(MainActivity.this,list,MainActivity.this);
+        userRecyclerView.setAdapter(userAdapter);
+
     }
     public void listele(){
         reference.child("Kullanıcılar").addChildEventListener(new ChildEventListener() {
@@ -47,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 if(!dataSnapshot.getKey().equals(username)) {
                     list.add(dataSnapshot.getKey());
                     Log.i("Kullanıcılar",dataSnapshot.getKey());
+                    userAdapter.notifyDataSetChanged();
                 }
             }
 
