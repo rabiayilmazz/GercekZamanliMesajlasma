@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference reference;
     List<String> list = new ArrayList<>();
     String username;
-    RecyclerView userRecyclerView;
+    RecyclerView userRecycView;
     UserAdapter userAdapter;
     
     @Override
@@ -43,10 +43,11 @@ public class MainActivity extends AppCompatActivity {
         username = getIntent().getExtras().getString("kadi");
         firebaseDatabase = FirebaseDatabase.getInstance();
         reference = firebaseDatabase.getReference();
+        userRecycView = (RecyclerView)findViewById(R.id.userRecycView);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(MainActivity.this,2);
-        userRecyclerView.setLayoutManager(layoutManager);
+        userRecycView.setLayoutManager(layoutManager);
         userAdapter = new UserAdapter(MainActivity.this,list,MainActivity.this);
-        userRecyclerView.setAdapter(userAdapter);
+        userRecycView.setAdapter(userAdapter);
 
     }
     public void listele(){
