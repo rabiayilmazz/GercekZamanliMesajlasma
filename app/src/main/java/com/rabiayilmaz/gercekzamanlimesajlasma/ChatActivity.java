@@ -13,12 +13,11 @@ public class ChatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-        System.out.println("cahta activity");
         tanimla();
     }
     public void tanimla(){
-        userName = getIntent().getExtras().getString("userNmame");
-        otherName = getIntent().getExtras().getString("otherNmame");
+        userName = getIntent().getExtras().getString("username");
+        otherName = getIntent().getExtras().getString("othername");
         Log.i("alınandegerler : ", userName + "--" + otherName);
     }
 }
