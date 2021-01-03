@@ -36,13 +36,15 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.textView.setText(list.get(position).toString());
         holder.userAnalayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity.ChatActivity.class);
                 intent.putExtra("username",userName);
+                intent.putExtra("othername",list.get(position).toCharArray().toString());
+                activity.startActivity(intent);
             }
         });
     }
