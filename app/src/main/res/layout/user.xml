@@ -5,6 +5,8 @@
     android:layout_width="wrap_content"
     android:orientation="vertical"
     android:layout_height="wrap_content"
+    android:clickable="true"
+    android:id="@+id/userAnalayout"
     tools:context=".MainActivity">
     <ImageView
         android:layout_width="100dp"

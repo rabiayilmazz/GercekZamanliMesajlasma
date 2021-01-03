@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         userRecycView = (RecyclerView)findViewById(R.id.userRecycView);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(MainActivity.this,2);
         userRecycView.setLayoutManager(layoutManager);
-        userAdapter = new UserAdapter(MainActivity.this,list,MainActivity.this);
+        userAdapter = new UserAdapter(MainActivity.this,list,MainActivity.this, username);
         userRecycView.setAdapter(userAdapter);
 
     }
