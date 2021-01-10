@@ -5,23 +5,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ChatActivity">
-    
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
+        android:id="@+id/ust"
         android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:background="#ffa801"
         android:orientation="horizontal">
         <ImageView
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:background="@drawable/back"
             android:clickable="true"
+            android:id="@+id/backImage"
             android:layout_weight="1" />
         <TextView
             android:layout_width="0dp"
+            android:text=""
             android:textStyle="bold"
-            android:layout_marginLeft="20dp"
+            android:textSize="25dp"
+            android:id="@+id/chatUserName"
+            android:layout_marginLeft="15dp"
             android:layout_height="wrap_content"
             android:layout_weight="6"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_above="@+id/alt"
+        android:layout_below="@+id/ust"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:id="@+id/alt"
+        android:background="#ffa801"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <EditText
+            android:layout_width="0dp"
+            android:textSize="20dp"
+            android:hint="Mesaj yazınız..."
+            android:id="@+id/chatEditText"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/send"
+            android:clickable="true"
+            android:id="@+id/sendImage"
+            android:layout_weight="1" />
     </LinearLayout>
 </RelativeLayout>

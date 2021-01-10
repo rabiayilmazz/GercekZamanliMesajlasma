@@ -43,7 +43,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             public void onClick(View v) {
                 Intent intent = new Intent(activity,ChatActivity.class);
                 intent.putExtra("username",userName);
-                intent.putExtra("othername",list.get(position).toCharArray().toString());
+                intent.putExtra("othername",list.get(position).toString());
                 activity.startActivity(intent);
             }
         });

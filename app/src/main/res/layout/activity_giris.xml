@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:orientation="vertical" 
     android:layout_height="match_parent"
-    android:background="#7f8c8d"
     android:gravity="center"
     tools:context=".GirisActivity">
 
@@ -13,6 +12,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:background="@drawable/chat"
+        android:outlineAmbientShadowColor="#fff"
         />
 
     <EditText
