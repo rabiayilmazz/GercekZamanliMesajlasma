@@ -1,6 +1,7 @@
 package com.rabiayilmaz.gercekzamanlimesajlasma;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,6 +15,9 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -34,6 +38,7 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
         tanimla();
+        loadMesaj();
     }
     public void olustur(){
         userName = getIntent().getExtras().getString("username");
@@ -67,14 +72,15 @@ public class ChatActivity extends AppCompatActivity {
         });
     }
     public void mesajGonder(String text){
+        final String key = reference.child("Mesajlar").child(userName).child(otherName).push().getKey();
         final Map mesajMap = new HashMap();
         mesajMap.put("text",text);
         mesajMap.put("from",userName);
-        reference.child("Mesajlar").child(userName).child(otherName).setValue(mesajMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+        reference.child("Mesajlar").child(userName).child(otherName).child(key).setValue(mesajMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    reference.child("mesajlar").child(otherName).child(userName).setValue(mesajMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    reference.child("Mesajlar").child(otherName).child(userName).child(key).setValue(mesajMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
@@ -83,5 +89,35 @@ public class ChatActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    public void loadMesaj() {
+        reference.child("Mesajlar").child(userName).child(otherName).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                MesajModel mesajmodel = dataSnapshot.getValue(MesajModel.class);
+                Log.i("Mesajlar", mesajmodel.toString());
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 }
