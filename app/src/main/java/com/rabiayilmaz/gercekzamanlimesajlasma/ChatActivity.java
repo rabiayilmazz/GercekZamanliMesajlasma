@@ -83,7 +83,6 @@ public class ChatActivity extends AppCompatActivity {
                     reference.child("Mesajlar").child(otherName).child(userName).child(key).setValue(mesajMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-
                         }
                     });
                 }

@@ -2,7 +2,6 @@ package com.rabiayilmaz.gercekzamanlimesajlasma;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,9 +29,9 @@ public class MesajAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public UserAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.user,parent,false);
-        return new ViewHolder(view);
+        return new UserAdapter.ViewHolder(view);
     }
 
     @Override
